@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cstring>
-
-
 #include "stack.h"
 
 using namespace std;
@@ -10,7 +8,6 @@ Stack::Stack() {
     head = 0;
     tail = 0;
 }
-
 Stack::~Stack() {
     while (head) {
         tail = head->next;
@@ -38,7 +35,14 @@ void Stack::removeElem() {
     tail = tail->next;
     delete delptr;
 }
-
+//освободить стек
+void Stack::removeAllElem() {
+    while (!isEmpty()) {
+        Node* delptr = tail;
+        tail = tail->next;
+        delete delptr;
+    }
+}
 //извлечение элемента из стека
 int Stack::getElem() {
     if (isEmpty()) {
@@ -64,6 +68,20 @@ int Stack::top() {
         throw string("Stack is empty!");
     }
     return tail->elem;
+}
+
+// заполнение стека возрастающими числами
+void Stack::fillInAscendingOrder(int count) {
+    for (int i = count; i > 0; i--) {
+        addElem(i);
+    }
+}
+
+// заполнение стека убывающими числами
+void Stack::fillInDescendingOrder(int count) {
+    for (int i = 1; i <= count; i++) {
+        addElem(i);
+    }
 }
 //вывод стека в консоль
 void Stack::print() {

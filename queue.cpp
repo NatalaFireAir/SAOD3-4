@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cstring>
-
-
 #include "queue.h"
 
 using namespace std;
@@ -10,7 +8,6 @@ Queue::Queue() {
     head = 0;
     tail = 0;
 }
-
 Queue::Queue(Queue *q) {
     head = 0;
     tail = 0;
@@ -18,7 +15,6 @@ Queue::Queue(Queue *q) {
         addElem(q->getElem());
     }
 }
-
 Queue::~Queue() {
     while (head) {
         tail = head->next;
@@ -49,7 +45,13 @@ void Queue::removeElem() {
     head = head->next;
     delete delPtr;
 }
-
+void Queue::removeAllElem() {
+    while (!isEmpty()) {
+        Node* delPtr = head;
+        head = head->next;
+        delete delPtr;
+    }
+}
 //извлечение элемента из очереди
 int Queue::getElem() {
     if (isEmpty()) {
@@ -76,6 +78,20 @@ int Queue::front(){
         string("Queue is empty");
     }
     return head->elem;
+}
+
+// заполнение очереди возрастающими числами
+void Queue::fillInAscendingOrder(int count) {
+    for (int i = 1; i <= count; i++) {
+        addElem(i);
+    }
+}
+
+// заполнение очереди убывающими числами
+void Queue::fillInDescendingOrder(int count) {
+    for (int i = count; i > 0; i--) {
+        addElem(i);
+    }
 }
 
 //вывод очереди в консоль

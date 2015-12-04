@@ -16,13 +16,14 @@ public:
     virtual void addElem(int val);
     int getElem();
     void removeElem();
+    void removeAllElem();
     bool isEmpty();
     int getSize();    
     void print();
 
+    void fillbyRand(int count);
     void fillInAscendingOrder(int count);      //в порядке возрастания
     void fillInDescendingOrder(int count);     //в порядке убывания
-    void fillbyRand(int count);
 
     int seriesNumberCount();
     int controlSumCount();

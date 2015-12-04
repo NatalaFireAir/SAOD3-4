@@ -100,7 +100,7 @@ void Sorting::mergeSort(Queue *queue) {
 void Sorting::radixSort(Queue *queue, const int scale ) { //SCALE - система счисления
     //в данном примере сортируется последовательность чисел представленных в десятичной системе
     int controlSum = queue->controlSumCount();
-    char *name = "mergeSort";
+    char *name = "radixSort";
     queue->print();
 
     int n;
